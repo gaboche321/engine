@@ -18,7 +18,7 @@ void
 player::
 render()
 {
-	glColor3f( 1. , 1. , 1. );
+	glColor3f( 1. , 0. , 0.5 );
 	glBegin(GL_QUADS);
 	{
 		glVertex2f( position_.x - 0.1, position_.y - 0.1) ;

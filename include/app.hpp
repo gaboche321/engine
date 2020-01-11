@@ -6,8 +6,10 @@
 #include <SDL_opengl.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include "glm/glm.hpp"
 
-#include "player.hpp"
+#include <player.hpp>
+#include <tile.hpp>
 
 #define LOG
 
@@ -30,6 +32,7 @@ private:
 	int window_height_;
 
 	player p;
+	tile t;
 
 	bool end_app_ ;
 };

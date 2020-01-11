@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include <app.hpp>
 
+#define APP_WIDTH 800
+#define APP_HEIGHT 600
 
 /*
  * Lesson 1: Hello World!
@@ -22,8 +24,8 @@ app() : win_( nullptr ) ,
 		ren_( nullptr ) ,
 		context_( nullptr ),
 		end_app_( false ) ,
-		window_width_( 640 ),
-		window_height_( 640 )
+		window_width_( APP_WIDTH ),
+		window_height_( APP_HEIGHT )
 
 {
 	log( "Starting application" ) ;
@@ -92,8 +94,8 @@ render()
 {
 	//log( "Rendering" );
     glClear(GL_COLOR_BUFFER_BIT);
-	p.render();
-
+	//p.render();
+	t.render();
     SDL_GL_SwapWindow(win_);
 }
 

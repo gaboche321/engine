@@ -8,6 +8,7 @@ public:
 	~graphics();
 
 private:
+	int x, y
 
 
 } ;
