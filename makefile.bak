@@ -1,0 +1,80 @@
+CC = g++
+INC = -I/home/gabriel/Documents/ENGINE/SDL2-2.0.10/include -Iglew/include -I. -I/usr/include
+LIB = -L./glew/lib
+
+CFLAGS = `sdl2-config --cflags --libs`
+DEPS = SDL.h
+
+
+SRC = app.cpp player.cpp
+OBJ = $(SRC:.cpp=.o)
+
+%.o: %.cpp
+	$(CC) -c -g -o $@ $< $(CFLAGS)
+
+engine: $(OBJ)
+	$(CC) -o engine $(OBJ) $(INC) $(LIB) $(CFLAGS)
+
+clean:
+	rm -r $(OBJ)
+
+depend: $(SRC)
+	makedepend $(INC) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_main.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_stdinc.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_config.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_platform.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/begin_code.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/close_code.h
+app.o: /usr/include/stdio.h /usr/include/stdlib.h /usr/include/string.h
+app.o: /usr/include/strings.h /usr/include/features.h
+app.o: /usr/include/stdc-predef.h /usr/include/wchar.h
+app.o: /usr/include/inttypes.h /usr/include/stdint.h /usr/include/ctype.h
+app.o: /usr/include/endian.h /usr/include/math.h /usr/include/alloca.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_assert.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_atomic.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_audio.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_error.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_endian.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_mutex.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_thread.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_rwops.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_clipboard.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_cpuinfo.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_events.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_video.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_pixels.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_rect.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_surface.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_blendmode.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_keyboard.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_keycode.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_scancode.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_mouse.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_joystick.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_gamecontroller.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_quit.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_gesture.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_touch.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_filesystem.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_haptic.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_hints.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_loadso.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_log.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_messagebox.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_power.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_render.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_sensor.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_shape.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_system.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_timer.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_version.h
+app.o: app.hpp
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_opengl.h
+app.o: /home/gabriel/Documents/ENGINE/SDL2-2.0.10/include/SDL_opengl_glext.h
+app.o: player.hpp
+player.o: player.hpp
