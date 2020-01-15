@@ -10,6 +10,7 @@
 #include <player.hpp>
 #include <tile.hpp>
 
+#include <vector>
 
 class app
 {
@@ -30,7 +31,7 @@ private:
 	int window_height_;
 
 	player p;
-	tile t;
+	std::vector< tile > tiles;
 
 	bool end_app_ ;
 };

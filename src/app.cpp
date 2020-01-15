@@ -88,9 +88,21 @@ start_loop()
 	log( "Starting Loop" );
 	GLenum err = glGetError() ;
 	std::cout << err << std::endl;
+	/*for (int i = 0; i < 6 ; i++)
+	{
+		for(int j = 0; j < 6; j++)
+		{	
+			tile t(i,j);
+			t.init() ;
+			tiles.push_back(t);
+		}
+	}*/
+	tile t(0,0);
 	t.init() ;
+	tiles.push_back(t);
+	
 	//glViewport(0, 0, window_width_, window_height_);
-		glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
+	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f) ;
 	while( !end_app_ )
 	{
@@ -108,7 +120,9 @@ render()
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//p.render();
-	t.render();
+	for (auto it = tiles.begin() ; it != tiles.end() ; it++)
+		(*it).render();
+
     SDL_GL_SwapWindow(win_);
 }
 

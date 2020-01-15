@@ -160,7 +160,8 @@ build/./src/tile.cpp.o: src/tile.cpp include/tile.hpp \
  glm/glm/gtc/../gtc/../ext/vector_int1_precision.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp \
- glm/glm/gtc/type_ptr.inl include/shader.hpp
+ glm/glm/gtc/type_ptr.inl include/shader.hpp \
+ src/../stb-master/stb_image.h
 
 include/tile.hpp:
 
@@ -553,3 +554,5 @@ glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp:
 glm/glm/gtc/type_ptr.inl:
 
 include/shader.hpp:
+
+src/../stb-master/stb_image.h:
