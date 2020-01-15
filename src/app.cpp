@@ -1,6 +1,7 @@
-#include <iostream>
+//#include <iostream>
 #include <SDL.h>
 #include <app.hpp>
+#include <utils.hpp>
 
 #define APP_WIDTH 800
 #define APP_HEIGHT 600
@@ -26,7 +27,6 @@ app() : win_( nullptr ) ,
 		end_app_( false ) ,
 		window_width_( APP_WIDTH ),
 		window_height_( APP_HEIGHT )
-
 {
 	log( "Starting application" ) ;
 
@@ -39,8 +39,13 @@ app() : win_( nullptr ) ,
 	}
 	
  	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
-        SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );
-        SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );
+	SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
+	SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 5 );
+    SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 5 );
+    SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 5 );
+    SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 16 );
+    SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
 
 	log( "Creating window" );
 	unsigned int window_flags = SDL_WINDOW_OPENGL;
@@ -51,23 +56,27 @@ app() : win_( nullptr ) ,
 		return;
 	}
 	SDL_GLContext Context = SDL_GL_CreateContext(win_);
+	glewExperimental=true;
+	glewInit() ;
 
-
-
-	log( "Creating renderer" );
-	ren_ = SDL_CreateRenderer( win_ , -1 , SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
-	if ( ren_ == nullptr ){
-		SDL_DestroyWindow( win_ );
-		std::cout << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
-		SDL_Quit();
-		return;
+	if (glewInit() != GLEW_OK) 
+	{
+    	fprintf(stderr, "Failed to initialize GLEW\n"); 
 	}
+
+	GLuint VertexArrayID;
+	glGenVertexArrays(1, &VertexArrayID);
+	glBindVertexArray(VertexArrayID);
+	GLenum err = glGetError() ;
+	std::cout << "bind vbo"<< err << std::endl;
+	glEnableClientState(GL_VERTEX_ARRAY);
+	err = glGetError() ;
+	std::cout << err << "enable client" << std::endl;
 }
 
 app::
 ~app()
 {
-	SDL_DestroyRenderer(ren_);
 	SDL_DestroyWindow(win_);
 	SDL_Quit();
 }
@@ -77,9 +86,12 @@ app::
 start_loop()
 {
 	log( "Starting Loop" );
-
-	glViewport(0, 0, window_width_, window_height_);
-	glClearColor(0.f, 0.f, 0.f, 0.f);
+	GLenum err = glGetError() ;
+	std::cout << err << std::endl;
+	t.init() ;
+	//glViewport(0, 0, window_width_, window_height_);
+		glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
+	glClearColor(0.0f, 0.0f, 0.4f, 0.0f) ;
 	while( !end_app_ )
 	{
 		event_handler();
@@ -93,7 +105,8 @@ app::
 render()
 {
 	//log( "Rendering" );
-    glClear(GL_COLOR_BUFFER_BIT);
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//p.render();
 	t.render();
     SDL_GL_SwapWindow(win_);

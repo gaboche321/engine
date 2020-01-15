@@ -178,7 +178,7 @@ build/./src/app.cpp.o: src/app.cpp SDL/include/SDL.h \
  glm/glm/gtc/../gtc/../ext/vector_int1_precision.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp \
- glm/glm/gtc/type_ptr.inl
+ glm/glm/gtc/type_ptr.inl include/shader.hpp include/utils.hpp
 
 SDL/include/SDL.h:
 
@@ -655,3 +655,7 @@ glm/glm/gtc/../gtc/../ext/vector_uint1.hpp:
 glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp:
 
 glm/glm/gtc/type_ptr.inl:
+
+include/shader.hpp:
+
+include/utils.hpp:

@@ -4,14 +4,12 @@
 #include <SDL.h>
 #include <GL/glew.h>
 #include <SDL_opengl.h>
-#include <GL/gl.h>
 #include <GL/glu.h>
 #include "glm/glm.hpp"
 
 #include <player.hpp>
 #include <tile.hpp>
 
-#define LOG
 
 class app
 {
@@ -38,12 +36,6 @@ private:
 };
 
 
-void log( std::string message )
-{
-#ifdef LOG
-	std::cout << "LOG : " + message << std::endl;
-#endif
-}
 
 
 #endif

@@ -1,3 +1,6 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
+
 #include <vector>
 #include <iostream>
 #include <GL/gl.h>
@@ -24,3 +27,5 @@ public:
 private:
 	position position_;
 };
+
+#endif

@@ -1,8 +1,11 @@
-build/./src/tile.cpp.o: src/tile.cpp include/tile.hpp glm/glm/glm.hpp \
- glm/glm/detail/_fixes.hpp glm/glm/detail/setup.hpp \
- glm/glm/detail/../simd/platform.h glm/glm/fwd.hpp \
- glm/glm/detail/qualifier.hpp glm/glm/detail/setup.hpp glm/glm/vec2.hpp \
- glm/glm/./ext/vector_bool2.hpp glm/glm/./ext/../detail/type_vec2.hpp \
+build/./src/tile.cpp.o: src/tile.cpp include/tile.hpp \
+ SDL/include/SDL_opengl.h SDL/include/SDL_config.h \
+ SDL/include/SDL_platform.h SDL/include/begin_code.h \
+ SDL/include/close_code.h glm/glm/glm.hpp glm/glm/detail/_fixes.hpp \
+ glm/glm/detail/setup.hpp glm/glm/detail/../simd/platform.h \
+ glm/glm/fwd.hpp glm/glm/detail/qualifier.hpp glm/glm/detail/setup.hpp \
+ glm/glm/vec2.hpp glm/glm/./ext/vector_bool2.hpp \
+ glm/glm/./ext/../detail/type_vec2.hpp \
  glm/glm/./ext/../detail/type_vec2.inl \
  glm/glm/./ext/../detail/./compute_vector_relational.hpp \
  glm/glm/./ext/../detail/./setup.hpp \
@@ -157,9 +160,19 @@ build/./src/tile.cpp.o: src/tile.cpp include/tile.hpp glm/glm/glm.hpp \
  glm/glm/gtc/../gtc/../ext/vector_int1_precision.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1.hpp \
  glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp \
- glm/glm/gtc/type_ptr.inl
+ glm/glm/gtc/type_ptr.inl include/shader.hpp
 
 include/tile.hpp:
+
+SDL/include/SDL_opengl.h:
+
+SDL/include/SDL_config.h:
+
+SDL/include/SDL_platform.h:
+
+SDL/include/begin_code.h:
+
+SDL/include/close_code.h:
 
 glm/glm/glm.hpp:
 
@@ -538,3 +551,5 @@ glm/glm/gtc/../gtc/../ext/vector_uint1.hpp:
 glm/glm/gtc/../gtc/../ext/vector_uint1_precision.hpp:
 
 glm/glm/gtc/type_ptr.inl:
+
+include/shader.hpp:

@@ -22,7 +22,7 @@ $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 # c++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
 	$(MKDIR_P) $(dir $@)
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CXXFLAGS) -c -g $< -o $@
 
 
 .PHONY: clean
