@@ -34,34 +34,10 @@ tile::
 init()
 {	
 
-	vs_.load_shader( "tile_vs.glsl" , shader_type::vertex_shader ) ;
-	fs_.load_shader( "tile_fs.glsl" , shader_type::fragment_shader ) ;
+	program_.create_program( "tile_vs.glsl" , "tile_fs.glsl" );
+	glUseProgram( program_.get_program() ) ;
 
-	program_ = glCreateProgram();
-	glAttachShader(program_, vs_.get_shader());
-	glAttachShader(program_, fs_.get_shader());
-	glLinkProgram(program_) ;
-		glUseProgram(program_) ;
-
-	GLint isLinked = 0;
-	glGetProgramiv(program_, GL_LINK_STATUS, &isLinked);
-	if(isLinked == GL_FALSE)
-	{
-		std::cout << "error linking program" << std::endl;
-		GLint maxLength = 0;
-		glGetProgramiv(program_, GL_INFO_LOG_LENGTH, &maxLength);
-
-		// The maxLength includes the NULL character
-		std::vector<GLchar> errorLog(maxLength);
-		glGetShaderInfoLog(program_, maxLength, &maxLength, &errorLog[0]);
-
-		std::string error_str(errorLog.begin() , errorLog.end()) ;
-
-		std::cout << error_str << std::endl;
-		// Provide the infolog in whatever manor you deem best.
-		// Exit with failure.
-		glDeleteProgram(program_); // Don't leak the shader.
-	}
+	
 
 	glGenBuffers(1, &vbo_);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
@@ -95,19 +71,27 @@ tile::
 render()
 {
 
-	float s_f = 0.5f;
+	float s_f = 0.2f;
 	float iso_angle = atan(0.5) ;
 	float iso_complement =  asin(1) - iso_angle ;
+	float vertical_angle = atan(1/sqrt(2)) ;
+	float horizontal_angle = asin(1/sqrt(2)) ;
 	//glm::mat4 r = glm::rotate(mvp, 0.785398f, glm::vec3(0,0,1));
 	//mvp = r;
 	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(s_f , s_f , s_f)) ;
-	glm::vec3 t_vector = s_f*glm::vec3( cos(iso_angle)*x_ - cos(iso_angle)*y_, sin(iso_angle)*y_ + sin(iso_angle)*x_ ,0.f) ;
+	glm::vec3 t_vector = s_f*glm::vec3( (float)x_ , (float)y_ ,0.f) ;
 	glm::mat4 t = glm::translate(glm::mat4(1.0f) , t_vector );
 
-	glm::mat4 mvp =  t * s ;
+	glm::mat4 model =  t * s ;
 
-	GLuint MatrixID = glGetUniformLocation(program_, "mvp") ;
-	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
+	glm::mat4 r1 = glm::rotate(glm::mat4(1.0f), horizontal_angle, glm::vec3(0,0,1));
+	glm::mat4 r2 = glm::rotate(glm::mat4(1.0f), vertical_angle, glm::vec3(1,0,0));
+
+	glm::mat4 view = r2 * r1;
+
+	glm::mat4 mvp = view * model ;
+
+	program_.set_uniform_mat4( "mvp" , mvp );
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
@@ -115,14 +99,14 @@ render()
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4*sizeof(GLfloat), (void*)0 ) ;
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4*sizeof(GLfloat), (void*)(2*sizeof(GLfloat) ) ) ;
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4*sizeof(GLfloat), (void*)(2*sizeof(GLfloat)) ) ;
 	glEnableVertexAttribArray(1);  
-	
+
 	glBindTexture(GL_TEXTURE_2D, tex_);
 	//glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4); // Starting from vertex 0; 3 vertices total -> 1 triangle
+	glDrawArrays(GL_TRIANGLES, 0, 6); // Starting from vertex 0; 3 vertices total -> 1 triangle
 	
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);

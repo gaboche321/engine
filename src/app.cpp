@@ -88,7 +88,7 @@ start_loop()
 	log( "Starting Loop" );
 	GLenum err = glGetError() ;
 	std::cout << err << std::endl;
-	/*for (int i = 0; i < 6 ; i++)
+	for (int i = 0; i < 6 ; i++)
 	{
 		for(int j = 0; j < 6; j++)
 		{	
@@ -96,10 +96,10 @@ start_loop()
 			t.init() ;
 			tiles.push_back(t);
 		}
-	}*/
-	tile t(0,0);
-	t.init() ;
-	tiles.push_back(t);
+	}
+	//tile t(0,0);
+	//t.init() ;
+	//tiles.push_back(t);
 	
 	//glViewport(0, 0, window_width_, window_height_);
 	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);

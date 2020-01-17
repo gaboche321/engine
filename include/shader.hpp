@@ -11,6 +11,10 @@
 #include <SDL_opengl.h>
 #include <GL/glu.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 
 enum shader_type
 {
@@ -23,12 +27,13 @@ class shader
 public:
 	shader() ;
 	~shader() ;
-	bool load_shader( std::string name , shader_type type); 
-	GLuint get_shader( ) ;
+	GLuint create_program( std::string vs_name , std::string fs_name );
+	GLuint get_program( ) ;
+
+	void set_uniform_mat4( std::string uniform , glm::mat4 mat );
 
 private:
-	std::string name_ ;
-	shader_type type_ ; 
+	GLuint load_shader( std::string name , shader_type type); 
 
 	GLuint id_ ;
 };

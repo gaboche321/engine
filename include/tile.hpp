@@ -23,14 +23,15 @@ public:
 	void set_position(int x, int y);
 private:
 	int x_, y_;
-	shader vs_ ;
-	shader fs_ ;
-	GLuint program_ ;
+
+	shader program_ ;
 	GLuint vbo_ ;
-	GLfloat vertices_[16] = { 	0.0 , -0.5, 0.5, -0.5, 
-								1.0, 0.0,  0.5, 0.5 ,
-								-1.0, 0.0 , -0.5, 0.5,
-								0.0, 0.5 , -0.5 , -0.5};
+	GLfloat vertices_[24] = { 	0.5 , -0.5 , 1.0 , 1.0 ,
+								-0.5 , -0.5 , 0.0 , 1.0 ,
+								-0.5 , 0.5 , 0.0 , 0.0 ,
+								-0.5 , 0.5 , 0.0 , 0.0 ,
+								0.5 , 0.5 , 1.0 , 0.0 ,
+								0.5 , -0.5 , 1.0 , 1.0 };
 	GLuint tex_ ;
 };
 
