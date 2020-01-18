@@ -9,6 +9,7 @@
 
 #include <player.hpp>
 #include <tile.hpp>
+#include <game_object.hpp>
 
 #include <vector>
 
@@ -31,7 +32,8 @@ private:
 	int window_height_;
 
 	player p;
-	std::vector< tile > tiles;
+
+	std::vector< game_object* > objects_ ;
 
 	bool end_app_ ;
 };

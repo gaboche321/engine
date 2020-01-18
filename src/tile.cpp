@@ -13,6 +13,7 @@ tile::
 tile( int x , int y)
 {
 	set_position( x, y) ;
+	init() ;
 }
 
 
@@ -20,13 +21,6 @@ tile::
 ~tile()
 {}
 
-void 
-tile::
-set_position(int x, int y)
-{
-	x_ = x;
-	y_ = y;
-}
 
 
 void
@@ -79,7 +73,7 @@ render()
 	//glm::mat4 r = glm::rotate(mvp, 0.785398f, glm::vec3(0,0,1));
 	//mvp = r;
 	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(s_f , s_f , s_f)) ;
-	glm::vec3 t_vector = s_f*glm::vec3( (float)x_ , (float)y_ ,0.f) ;
+	glm::vec3 t_vector = s_f*glm::vec3( (float)x() , (float)y() ,0.f) ;
 	glm::mat4 t = glm::translate(glm::mat4(1.0f) , t_vector );
 
 	glm::mat4 model =  t * s ;
@@ -110,4 +104,6 @@ render()
 	
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
+
+		std::cout << "rendering" << x() << "," << y() << std::endl ;
 }

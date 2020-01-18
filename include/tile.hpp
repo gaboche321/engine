@@ -10,8 +10,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <shader.hpp>
+#include <game_object.hpp>
 
-class tile
+class tile : public game_object
 {
 public:
 	tile();
@@ -19,10 +20,7 @@ public:
 	~tile();
 	void init() ;
 	void render();
-
-	void set_position(int x, int y);
 private:
-	int x_, y_;
 
 	shader program_ ;
 	GLuint vbo_ ;

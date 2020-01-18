@@ -255,12 +255,14 @@ CMakeFiles/engine.dir/src/app.cpp.o: glm/glm/vec3.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: glm/glm/vec4.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: glm/glm/vector_relational.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: include/app.hpp
+CMakeFiles/engine.dir/src/app.cpp.o: include/game_object.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: include/player.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: include/shader.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: include/tile.hpp
 CMakeFiles/engine.dir/src/app.cpp.o: include/utils.hpp
 
 CMakeFiles/engine.dir/src/game_object.cpp.o: src/game_object.cpp
+CMakeFiles/engine.dir/src/game_object.cpp.o: include/game_object.hpp
 
 CMakeFiles/engine.dir/src/graphics.cpp.o: src/graphics.cpp
 
@@ -688,6 +690,7 @@ CMakeFiles/engine.dir/src/tile.cpp.o: glm/glm/vec2.hpp
 CMakeFiles/engine.dir/src/tile.cpp.o: glm/glm/vec3.hpp
 CMakeFiles/engine.dir/src/tile.cpp.o: glm/glm/vec4.hpp
 CMakeFiles/engine.dir/src/tile.cpp.o: glm/glm/vector_relational.hpp
+CMakeFiles/engine.dir/src/tile.cpp.o: include/game_object.hpp
 CMakeFiles/engine.dir/src/tile.cpp.o: include/shader.hpp
 CMakeFiles/engine.dir/src/tile.cpp.o: include/tile.hpp
 
