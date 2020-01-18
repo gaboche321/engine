@@ -6,6 +6,8 @@
 #define APP_WIDTH 800
 #define APP_HEIGHT 600
 
+#define MS_PER_UPDATE 1000/25
+
 /*
  * Lesson 1: Hello World!
  */
@@ -104,11 +106,28 @@ start_loop()
 	//glViewport(0, 0, window_width_, window_height_);
 	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f) ;
-	while( !end_app_ )
+
+unsigned int previous = SDL_GetTicks();
+double lag = 0.0;
+while (!end_app_)
+{
+	double current = SDL_GetTicks();
+	double elapsed = current - previous;
+	previous = current;
+	lag += elapsed;
+
+	event_handler();
+
+	while (lag >= MS_PER_UPDATE)
 	{
-		event_handler();
-		render();
+		//update();
+		lag -= MS_PER_UPDATE;
 	}
+	render();
+}
+
+
+	
 
 }
 
