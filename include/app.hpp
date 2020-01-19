@@ -10,6 +10,7 @@
 #include <player.hpp>
 #include <tile.hpp>
 #include <game_object.hpp>
+#include <camera.hpp>
 
 #include <vector>
 
@@ -31,8 +32,7 @@ private:
 	int window_width_;
 	int window_height_;
 
-	player p;
-
+	camera * camera_ ;
 	std::vector< game_object* > objects_ ;
 
 	bool end_app_ ;

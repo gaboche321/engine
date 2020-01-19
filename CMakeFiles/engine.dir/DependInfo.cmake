@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gabriel/Documents/ENGINE/src/app.cpp" "/home/gabriel/Documents/ENGINE/CMakeFiles/engine.dir/src/app.cpp.o"
+  "/home/gabriel/Documents/ENGINE/src/camera.cpp" "/home/gabriel/Documents/ENGINE/CMakeFiles/engine.dir/src/camera.cpp.o"
   "/home/gabriel/Documents/ENGINE/src/game_object.cpp" "/home/gabriel/Documents/ENGINE/CMakeFiles/engine.dir/src/game_object.cpp.o"
   "/home/gabriel/Documents/ENGINE/src/graphics.cpp" "/home/gabriel/Documents/ENGINE/CMakeFiles/engine.dir/src/graphics.cpp.o"
   "/home/gabriel/Documents/ENGINE/src/player.cpp" "/home/gabriel/Documents/ENGINE/CMakeFiles/engine.dir/src/player.cpp.o"

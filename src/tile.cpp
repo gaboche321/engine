@@ -29,9 +29,6 @@ init()
 {	
 
 	program_.create_program( "tile_vs.glsl" , "tile_fs.glsl" );
-	glUseProgram( program_.get_program() ) ;
-
-	
 
 	glGenBuffers(1, &vbo_);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
@@ -62,26 +59,18 @@ init()
 
 void
 tile::
-render()
+render(glm::mat4 view)
 {
+	glUseProgram( program_.get_program() ) ;
+		float s_f = 0.2f;
 
-	float s_f = 0.2f;
-	float iso_angle = atan(0.5) ;
-	float iso_complement =  asin(1) - iso_angle ;
-	float vertical_angle = atan(1/sqrt(2)) ;
-	float horizontal_angle = asin(1/sqrt(2)) ;
-	//glm::mat4 r = glm::rotate(mvp, 0.785398f, glm::vec3(0,0,1));
-	//mvp = r;
 	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(s_f , s_f , s_f)) ;
 	glm::vec3 t_vector = s_f*glm::vec3( (float)x() , (float)y() ,0.f) ;
 	glm::mat4 t = glm::translate(glm::mat4(1.0f) , t_vector );
 
 	glm::mat4 model =  t * s ;
 
-	glm::mat4 r1 = glm::rotate(glm::mat4(1.0f), horizontal_angle, glm::vec3(0,0,1));
-	glm::mat4 r2 = glm::rotate(glm::mat4(1.0f), vertical_angle, glm::vec3(1,0,0));
 
-	glm::mat4 view = r2 * r1;
 
 	glm::mat4 mvp = view * model ;
 
@@ -105,5 +94,4 @@ render()
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 
-		std::cout << "rendering" << x() << "," << y() << std::endl ;
 }

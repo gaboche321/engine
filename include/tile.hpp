@@ -19,12 +19,12 @@ public:
 	tile(int x, int y);
 	~tile();
 	void init() ;
-	void render();
+	void render(glm::mat4 view);
 private:
 
 	shader program_ ;
 	GLuint vbo_ ;
-	GLfloat vertices_[24] = { 	0.5 , -0.5 , 1.0 , 1.0 ,
+    GLfloat vertices_[24] = { 	0.5 , -0.5 , 1.0 , 1.0 ,
 								-0.5 , -0.5 , 0.0 , 1.0 ,
 								-0.5 , 0.5 , 0.0 , 0.0 ,
 								-0.5 , 0.5 , 0.0 , 0.0 ,

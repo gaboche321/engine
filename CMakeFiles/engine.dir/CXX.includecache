@@ -14,6 +14,10 @@ app.hpp
 utils.hpp
 -
 
+/home/gabriel/Documents/ENGINE/src/camera.cpp
+camera.hpp
+-
+
 /home/gabriel/Documents/ENGINE/src/game_object.cpp
 game_object.hpp
 -
@@ -2191,10 +2195,28 @@ tile.hpp
 -
 game_object.hpp
 -
+camera.hpp
+-
 vector
 -
 
+include/camera.hpp
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+glm/gtc/type_ptr.hpp
+-
+game_object.hpp
+-
+
 include/game_object.hpp
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+glm/gtc/type_ptr.hpp
+-
 
 include/player.hpp
 vector

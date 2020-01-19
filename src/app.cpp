@@ -6,7 +6,7 @@
 #define APP_WIDTH 800
 #define APP_HEIGHT 600
 
-#define MS_PER_UPDATE 1000/25
+#define MS_PER_UPDATE 1000/60
 
 /*
  * Lesson 1: Hello World!
@@ -74,6 +74,8 @@ app() : win_( nullptr ) ,
 	glEnableClientState(GL_VERTEX_ARRAY);
 	err = glGetError() ;
 	std::cout << err << "enable client" << std::endl;
+
+
 }
 
 app::
@@ -88,11 +90,13 @@ app::
 start_loop()
 {
 	log( "Starting Loop" );
-	GLenum err = glGetError() ;
-	std::cout << err << std::endl;
-	for (int i = 0; i < 6 ; i++)
+
+	camera_ = new camera;
+	camera_->set_position(0,0);
+
+	for (int i = 0; i < 20 ; i++)
 	{
-		for(int j = 0; j < 6; j++)
+		for(int j = 0; j < 20; j++)
 		{	
 			objects_.push_back( new tile(i,j) );
 		}
@@ -113,6 +117,7 @@ while (!end_app_)
 
 	while (lag >= MS_PER_UPDATE)
 	{
+		camera_->update() ;
 		//update();
 		lag -= MS_PER_UPDATE;
 	}
@@ -133,7 +138,7 @@ render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//p.render();
 	for (auto it = objects_.begin() ; it != objects_.end() ; it++)
-		(*it)->render();
+		(*it)->render( camera_->get_view_matrix() );
 
     SDL_GL_SwapWindow(win_);
 }
@@ -161,10 +166,39 @@ event_handler()
 		}
 		else if( id == SDL_MOUSEMOTION )
 		{
-			float pos_x = 2.*(float)e.button.x/(float)window_width_ - 1 ;
-			float pos_y = 2.*(float)( window_height_ - e.button.y )/(float)window_height_ - 1 ; 
-			p.set_position( pos_x , pos_y ) ;
 		}
-
+		else if( id == SDL_KEYDOWN )
+		{
+			if (e.key.keysym.sym == SDLK_w)
+			{
+				camera_->set_speed( 0 , -0.01 );
+				std::cout << "up" << std::endl;  
+			}
+			else if(e.key.keysym.sym == SDLK_s)
+			{
+				camera_->set_speed( 0 ,0.01 );
+				std::cout << "down" << std::endl;  
+			}
+			else if(e.key.keysym.sym == SDLK_a)
+			{
+				camera_->set_speed( 0.01 , 0 );
+				std::cout << "left" << std::endl;  
+			}
+			else if(e.key.keysym.sym == SDLK_d)
+			{
+				camera_->set_speed( -0.01 , 0 );
+				std::cout << "right" << std::endl;  
+			}
+		}
+		else if( id == SDL_KEYUP)
+		{
+			if (e.key.keysym.sym == SDLK_w || 
+				e.key.keysym.sym == SDLK_a ||
+				e.key.keysym.sym == SDLK_s ||
+				e.key.keysym.sym == SDLK_d)
+			{
+				camera_->set_speed( 0 , 0 );
+			}
+		}
 	}
 }
