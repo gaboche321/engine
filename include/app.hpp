@@ -11,6 +11,7 @@
 #include <tile.hpp>
 #include <game_object.hpp>
 #include <camera.hpp>
+#include <renderer.hpp>
 
 #include <vector>
 
@@ -35,6 +36,7 @@ private:
 	camera * camera_ ;
 	std::vector< game_object* > objects_ ;
 
+	renderer renderer_ ;
 	bool end_app_ ;
 };
 

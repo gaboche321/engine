@@ -4,7 +4,7 @@
 #include <utils.hpp>
 
 #define APP_WIDTH 800
-#define APP_HEIGHT 600
+#define APP_HEIGHT 800
 
 #define MS_PER_UPDATE 1000/60
 
@@ -50,7 +50,7 @@ app() : win_( nullptr ) ,
     SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
 
 	log( "Creating window" );
-	unsigned int window_flags = SDL_WINDOW_OPENGL;
+	unsigned int window_flags = SDL_WINDOW_OPENGL ;
 	win_ = SDL_CreateWindow( "Hello World!" , 100 , 100 , window_width_ , window_height_ , window_flags );
 	if ( win_ == nullptr )
 	{
@@ -98,50 +98,38 @@ start_loop()
 	{
 		for(int j = 0; j < 20; j++)
 		{	
-			objects_.push_back( new tile(i,j) );
+			std::cout << i << "," << j << std::endl ;
+			tile * new_tile = new tile(i,j) ;
+			new_tile->set_attached_texture( "tile_test.jpg") ;
+			objects_.push_back( new_tile );
 		}
 	}
 	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f) ;
+	glClearColor(0.0f, 0.0f, 0.2f, 0.0f) ;
 
-unsigned int previous = SDL_GetTicks();
-double lag = 0.0;
-while (!end_app_)
-{
-	double current = SDL_GetTicks();
-	double elapsed = current - previous;
-	previous = current;
-	lag += elapsed;
-
-	event_handler();
-
-	while (lag >= MS_PER_UPDATE)
+	unsigned int previous = SDL_GetTicks();
+	double lag = 0.0;
+	while (!end_app_)
 	{
-		camera_->update() ;
-		//update();
-		lag -= MS_PER_UPDATE;
+		double current = SDL_GetTicks();
+		double elapsed = current - previous;
+		previous = current;
+		lag += elapsed;
+
+		event_handler();
+
+		while (lag >= MS_PER_UPDATE)
+		{
+			camera_->update() ;
+			//update();
+			lag -= MS_PER_UPDATE;
+		}
+		
+		renderer_.draw( objects_ ,  camera_->get_view_matrix() , win_ ) ;
 	}
-	render();
-}
-
-
-	
 
 }
 
-void
-app::
-render()
-{
-	//log( "Rendering" );
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//p.render();
-	for (auto it = objects_.begin() ; it != objects_.end() ; it++)
-		(*it)->render( camera_->get_view_matrix() );
-
-    SDL_GL_SwapWindow(win_);
-}
 
 void
 app::
@@ -188,6 +176,13 @@ event_handler()
 			{
 				camera_->set_speed( -0.01 , 0 );
 				std::cout << "right" << std::endl;  
+			}
+			else if(e.key.keysym.sym == SDLK_q )
+			{
+				end_app_ = true ;
+                e.type = SDL_QUIT;
+				SDL_PushEvent( &e );
+				
 			}
 		}
 		else if( id == SDL_KEYUP)

@@ -28,10 +28,26 @@ game_object.hpp
 player.hpp
 /home/gabriel/Documents/ENGINE/src/player.hpp
 
+/home/gabriel/Documents/ENGINE/src/renderer.cpp
+renderer.hpp
+-
+algorithm
+-
+iostream
+-
+
 /home/gabriel/Documents/ENGINE/src/shader.cpp
 shader.hpp
 -
 vector
+-
+
+/home/gabriel/Documents/ENGINE/src/texture.cpp
+texture.hpp
+-
+../stb-master/stb_image.h
+/home/gabriel/Documents/ENGINE/stb-master/stb_image.h
+iostream
 -
 
 /home/gabriel/Documents/ENGINE/src/tile.cpp
@@ -2197,6 +2213,8 @@ game_object.hpp
 -
 camera.hpp
 -
+renderer.hpp
+-
 vector
 -
 
@@ -2211,11 +2229,15 @@ game_object.hpp
 -
 
 include/game_object.hpp
+GL/glew.h
+-
 glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
 glm/gtc/type_ptr.hpp
+-
+string
 -
 
 include/player.hpp
@@ -2226,6 +2248,16 @@ iostream
 GL/gl.h
 -
 GL/glu.h
+-
+
+include/renderer.hpp
+SDL.h
+-
+vector
+-
+game_object.hpp
+-
+texture.hpp
 -
 
 include/shader.hpp
@@ -2248,6 +2280,12 @@ glm/glm.hpp
 glm/gtc/matrix_transform.hpp
 -
 glm/gtc/type_ptr.hpp
+-
+
+include/texture.hpp
+string
+-
+GL/glew.h
 -
 
 include/tile.hpp

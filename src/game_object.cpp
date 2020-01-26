@@ -28,7 +28,7 @@ y()
 
 void
 game_object::
-render( glm::mat4 view)
+render( glm::mat4 view , GLuint tex)
 {}
 
 void 
@@ -53,4 +53,18 @@ update(   )
 {
 	x_ += vx_;
 	y_ += vy_;
+}
+
+void
+game_object::
+set_attached_texture(std::string name)
+{
+	attached_texture_ = name ;
+} 
+
+const std::string 
+game_object::
+get_attached_texture()
+{
+	return attached_texture_ ;
 }

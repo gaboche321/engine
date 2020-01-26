@@ -34,40 +34,19 @@ init()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_), &vertices_, GL_STATIC_DRAW);
 
-	glGenTextures(1, &tex_);
-	glBindTexture(GL_TEXTURE_2D, tex_);
-	// set the texture wrapping/filtering options (on the currently bound texture object)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	// load and generate the texture
-	int width, height, nrChannels;
-	unsigned char *data = stbi_load("tile_test.jpg", &width, &height, &nrChannels, 0);
-	if (data)
-	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
-	}
-	else
-	{
-		std::cout << "Failed to load texture" << std::endl;
-	}
-	stbi_image_free(data);
 }
 
 
 void
 tile::
-render(glm::mat4 view)
+render(glm::mat4 view , GLuint tex)
 {
 	glUseProgram( program_.get_program() ) ;
-		float s_f = 0.2f;
+		float s_f = 0.1f;
 
 	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(s_f , s_f , s_f)) ;
 	glm::vec3 t_vector = s_f*glm::vec3( (float)x() , (float)y() ,0.f) ;
 	glm::mat4 t = glm::translate(glm::mat4(1.0f) , t_vector );
-
 	glm::mat4 model =  t * s ;
 
 
@@ -85,7 +64,7 @@ render(glm::mat4 view)
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4*sizeof(GLfloat), (void*)(2*sizeof(GLfloat)) ) ;
 	glEnableVertexAttribArray(1);  
 
-	glBindTexture(GL_TEXTURE_2D, tex_);
+	glBindTexture(GL_TEXTURE_2D, tex);
 	//glBindVertexArray(VAO);
 	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

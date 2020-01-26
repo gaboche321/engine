@@ -19,8 +19,12 @@ public:
 	tile(int x, int y);
 	~tile();
 	void init() ;
-	void render(glm::mat4 view);
+	void render(glm::mat4 view, GLuint tex);
+
+
 private:
+
+	std::string attached_texture_ ;
 
 	shader program_ ;
 	GLuint vbo_ ;

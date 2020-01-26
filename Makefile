@@ -258,6 +258,33 @@ src/player.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/player.cpp.s
 .PHONY : src/player.cpp.s
 
+src/renderer.o: src/renderer.cpp.o
+
+.PHONY : src/renderer.o
+
+# target to build an object file
+src/renderer.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/renderer.cpp.o
+.PHONY : src/renderer.cpp.o
+
+src/renderer.i: src/renderer.cpp.i
+
+.PHONY : src/renderer.i
+
+# target to preprocess a source file
+src/renderer.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/renderer.cpp.i
+.PHONY : src/renderer.cpp.i
+
+src/renderer.s: src/renderer.cpp.s
+
+.PHONY : src/renderer.s
+
+# target to generate assembly for a file
+src/renderer.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/renderer.cpp.s
+.PHONY : src/renderer.cpp.s
+
 src/shader.o: src/shader.cpp.o
 
 .PHONY : src/shader.o
@@ -284,6 +311,33 @@ src/shader.s: src/shader.cpp.s
 src/shader.cpp.s:
 	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shader.cpp.s
 .PHONY : src/shader.cpp.s
+
+src/texture.o: src/texture.cpp.o
+
+.PHONY : src/texture.o
+
+# target to build an object file
+src/texture.cpp.o:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/texture.cpp.o
+.PHONY : src/texture.cpp.o
+
+src/texture.i: src/texture.cpp.i
+
+.PHONY : src/texture.i
+
+# target to preprocess a source file
+src/texture.cpp.i:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/texture.cpp.i
+.PHONY : src/texture.cpp.i
+
+src/texture.s: src/texture.cpp.s
+
+.PHONY : src/texture.s
+
+# target to generate assembly for a file
+src/texture.cpp.s:
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/texture.cpp.s
+.PHONY : src/texture.cpp.s
 
 src/tile.o: src/tile.cpp.o
 
@@ -363,9 +417,15 @@ help:
 	@echo "... src/player.o"
 	@echo "... src/player.i"
 	@echo "... src/player.s"
+	@echo "... src/renderer.o"
+	@echo "... src/renderer.i"
+	@echo "... src/renderer.s"
 	@echo "... src/shader.o"
 	@echo "... src/shader.i"
 	@echo "... src/shader.s"
+	@echo "... src/texture.o"
+	@echo "... src/texture.i"
+	@echo "... src/texture.s"
 	@echo "... src/tile.o"
 	@echo "... src/tile.i"
 	@echo "... src/tile.s"

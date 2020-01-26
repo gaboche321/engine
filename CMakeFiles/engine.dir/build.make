@@ -177,9 +177,33 @@ CMakeFiles/engine.dir/src/player.cpp.o.provides: CMakeFiles/engine.dir/src/playe
 CMakeFiles/engine.dir/src/player.cpp.o.provides.build: CMakeFiles/engine.dir/src/player.cpp.o
 
 
+CMakeFiles/engine.dir/src/renderer.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/renderer.cpp.o: src/renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/renderer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/renderer.cpp.o -c /home/gabriel/Documents/ENGINE/src/renderer.cpp
+
+CMakeFiles/engine.dir/src/renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/renderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gabriel/Documents/ENGINE/src/renderer.cpp > CMakeFiles/engine.dir/src/renderer.cpp.i
+
+CMakeFiles/engine.dir/src/renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/renderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gabriel/Documents/ENGINE/src/renderer.cpp -o CMakeFiles/engine.dir/src/renderer.cpp.s
+
+CMakeFiles/engine.dir/src/renderer.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/src/renderer.cpp.o.requires
+
+CMakeFiles/engine.dir/src/renderer.cpp.o.provides: CMakeFiles/engine.dir/src/renderer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/renderer.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/src/renderer.cpp.o.provides
+
+CMakeFiles/engine.dir/src/renderer.cpp.o.provides.build: CMakeFiles/engine.dir/src/renderer.cpp.o
+
+
 CMakeFiles/engine.dir/src/shader.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/shader.cpp.o: src/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/shader.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/shader.cpp.o -c /home/gabriel/Documents/ENGINE/src/shader.cpp
 
 CMakeFiles/engine.dir/src/shader.cpp.i: cmake_force
@@ -201,9 +225,33 @@ CMakeFiles/engine.dir/src/shader.cpp.o.provides: CMakeFiles/engine.dir/src/shade
 CMakeFiles/engine.dir/src/shader.cpp.o.provides.build: CMakeFiles/engine.dir/src/shader.cpp.o
 
 
+CMakeFiles/engine.dir/src/texture.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/texture.cpp.o: src/texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/texture.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/texture.cpp.o -c /home/gabriel/Documents/ENGINE/src/texture.cpp
+
+CMakeFiles/engine.dir/src/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gabriel/Documents/ENGINE/src/texture.cpp > CMakeFiles/engine.dir/src/texture.cpp.i
+
+CMakeFiles/engine.dir/src/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gabriel/Documents/ENGINE/src/texture.cpp -o CMakeFiles/engine.dir/src/texture.cpp.s
+
+CMakeFiles/engine.dir/src/texture.cpp.o.requires:
+
+.PHONY : CMakeFiles/engine.dir/src/texture.cpp.o.requires
+
+CMakeFiles/engine.dir/src/texture.cpp.o.provides: CMakeFiles/engine.dir/src/texture.cpp.o.requires
+	$(MAKE) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/texture.cpp.o.provides.build
+.PHONY : CMakeFiles/engine.dir/src/texture.cpp.o.provides
+
+CMakeFiles/engine.dir/src/texture.cpp.o.provides.build: CMakeFiles/engine.dir/src/texture.cpp.o
+
+
 CMakeFiles/engine.dir/src/tile.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/tile.cpp.o: src/tile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/tile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/tile.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/tile.cpp.o -c /home/gabriel/Documents/ENGINE/src/tile.cpp
 
 CMakeFiles/engine.dir/src/tile.cpp.i: cmake_force
@@ -227,7 +275,7 @@ CMakeFiles/engine.dir/src/tile.cpp.o.provides.build: CMakeFiles/engine.dir/src/t
 
 CMakeFiles/engine.dir/src/timer.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/timer.cpp.o: src/timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/timer.cpp.o -c /home/gabriel/Documents/ENGINE/src/timer.cpp
 
 CMakeFiles/engine.dir/src/timer.cpp.i: cmake_force
@@ -256,7 +304,9 @@ engine_OBJECTS = \
 "CMakeFiles/engine.dir/src/game_object.cpp.o" \
 "CMakeFiles/engine.dir/src/graphics.cpp.o" \
 "CMakeFiles/engine.dir/src/player.cpp.o" \
+"CMakeFiles/engine.dir/src/renderer.cpp.o" \
 "CMakeFiles/engine.dir/src/shader.cpp.o" \
+"CMakeFiles/engine.dir/src/texture.cpp.o" \
 "CMakeFiles/engine.dir/src/tile.cpp.o" \
 "CMakeFiles/engine.dir/src/timer.cpp.o"
 
@@ -268,7 +318,9 @@ engine: CMakeFiles/engine.dir/src/camera.cpp.o
 engine: CMakeFiles/engine.dir/src/game_object.cpp.o
 engine: CMakeFiles/engine.dir/src/graphics.cpp.o
 engine: CMakeFiles/engine.dir/src/player.cpp.o
+engine: CMakeFiles/engine.dir/src/renderer.cpp.o
 engine: CMakeFiles/engine.dir/src/shader.cpp.o
+engine: CMakeFiles/engine.dir/src/texture.cpp.o
 engine: CMakeFiles/engine.dir/src/tile.cpp.o
 engine: CMakeFiles/engine.dir/src/timer.cpp.o
 engine: CMakeFiles/engine.dir/build.make
@@ -278,7 +330,7 @@ engine: /usr/lib64/libGLEW.so
 engine: /usr/lib/x86_64-linux-gnu/libGL.so
 engine: /usr/lib/x86_64-linux-gnu/libGLU.so
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gabriel/Documents/ENGINE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -291,7 +343,9 @@ CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/camera.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/game_object.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/graphics.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/player.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/renderer.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/shader.cpp.o.requires
+CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/texture.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/tile.cpp.o.requires
 CMakeFiles/engine.dir/requires: CMakeFiles/engine.dir/src/timer.cpp.o.requires
 
