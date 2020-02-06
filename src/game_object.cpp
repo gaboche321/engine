@@ -5,7 +5,8 @@ game_object::
 game_object():x_( 0 ) ,
 				y_( 0 ) ,
 				vx_( 0 ) ,
-				vy_( 0 )
+				vy_( 0 ) ,
+				visible_( true )
 {}
 
 game_object::
@@ -28,8 +29,12 @@ y()
 
 void
 game_object::
-render( glm::mat4 view , GLuint tex)
-{}
+render( glm::mat4 view , GLuint tex, SDL_Window * win )
+{
+	if( visible_ )
+		return ;
+
+}
 
 void 
 game_object::

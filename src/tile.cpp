@@ -5,6 +5,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb-master/stb_image.h"
 
+#define TILE_SIZE 32.f
+
 tile::
 tile()
 {
@@ -39,19 +41,24 @@ init()
 
 void
 tile::
-render(glm::mat4 view , GLuint tex)
+render(glm::mat4 view , GLuint tex , SDL_Window * win )
 {
 	glUseProgram( program_.get_program() ) ;
-		float s_f = 0.1f;
 
-	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(s_f , s_f , s_f)) ;
-	glm::vec3 t_vector = s_f*glm::vec3( (float)x() , (float)y() ,0.f) ;
+	int size_x,size_y;
+	SDL_GetWindowSize(win,&size_x,&size_y);
+
+	float scale_x = 2.0*TILE_SIZE/size_x ;
+	float scale_y = 2.0*TILE_SIZE/size_y ;
+
+	glm::mat4 s = glm::scale(glm::mat4(1.0f) , glm::vec3(scale_x , scale_y , 1.0f)) ;
+	glm::vec3 t_vector = glm::vec3( scale_x*(float)x() , scale_y*(float)y() ,0.f) ;
 	glm::mat4 t = glm::translate(glm::mat4(1.0f) , t_vector );
 	glm::mat4 model =  t * s ;
 
 
 
-	glm::mat4 mvp = view * model ;
+	glm::mat4 mvp =  view * model;
 
 	program_.set_uniform_mat4( "mvp" , mvp );
 

@@ -1,6 +1,7 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
 
+#include <SDL.h>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -17,7 +18,7 @@ public:
 	void set_speed( float x , float y ) ;
 	void update(  );
 
-	virtual void render( glm::mat4 view , GLuint tex );
+	virtual void render( glm::mat4 view , GLuint tex , SDL_Window * win  );
 
 	float x();
 	float y();
@@ -30,6 +31,7 @@ public:
 private:
 	float x_ , y_ ;
 	float vx_ , vy_ ;
+	bool visible_ ;
 
 	std::string attached_texture_ ;
 };
