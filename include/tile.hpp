@@ -3,6 +3,7 @@
 #ifndef TILE_HPP
 #define TILE_HPP
 
+#include <SDL.h>
 #include <GL/glew.h>
 #include <SDL_opengl.h>
 #include <GL/glu.h>
@@ -19,7 +20,7 @@ public:
 	tile(int x, int y);
 	~tile();
 	void init() ;
-	void render(glm::mat4 view, GLuint tex);
+	void render(glm::mat4 view, GLuint tex , SDL_Window * win );
 
 
 private:

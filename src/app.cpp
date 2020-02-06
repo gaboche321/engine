@@ -3,86 +3,41 @@
 #include <app.hpp>
 #include <utils.hpp>
 
-#define APP_WIDTH 800
-#define APP_HEIGHT 800
+
 
 #define MS_PER_UPDATE 1000/60
 
 /*
  * Lesson 1: Hello World!
  */
-int main(int, char**){
-	//First we need to start up SDL, and make sure it went ok
-	
+int main(int, char**)
+{	
 	app application;
 	application.start_loop() ;
-
-
 
 	return 0;
 }
 
 app::
-app() : win_( nullptr ) ,
-		ren_( nullptr ) ,
-		context_( nullptr ),
-		end_app_( false ) ,
-		window_width_( APP_WIDTH ),
-		window_height_( APP_HEIGHT )
+app() :
+		end_app_( false ) 
+
 {
 	log( "Starting application" ) ;
-
-
 
 	if ( SDL_Init( SDL_INIT_VIDEO ) != 0 )
 	{
 		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 		return;
 	}
-	
- 	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
-	SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );
-	SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
-	SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 5 );
-    SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 5 );
-    SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 5 );
-    SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 16 );
-    SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
-
-	log( "Creating window" );
-	unsigned int window_flags = SDL_WINDOW_OPENGL ;
-	win_ = SDL_CreateWindow( "Hello World!" , 100 , 100 , window_width_ , window_height_ , window_flags );
-	if ( win_ == nullptr )
-	{
-		std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
-		return;
-	}
-	SDL_GLContext Context = SDL_GL_CreateContext(win_);
-	glewExperimental=true;
-	glewInit() ;
-
-	if (glewInit() != GLEW_OK) 
-	{
-    	fprintf(stderr, "Failed to initialize GLEW\n"); 
-	}
-
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-	GLenum err = glGetError() ;
-	std::cout << "bind vbo"<< err << std::endl;
-	glEnableClientState(GL_VERTEX_ARRAY);
-	err = glGetError() ;
-	std::cout << err << "enable client" << std::endl;
-
+	renderer_.init();
 
 }
 
 app::
 ~app()
 {
-	SDL_DestroyWindow(win_);
-	SDL_Quit();
+
 }
 
 void
@@ -94,9 +49,9 @@ start_loop()
 	camera_ = new camera;
 	camera_->set_position(0,0);
 
-	for (int i = 0; i < 20 ; i++)
+	for (int i = -20; i < 20 ; i++)
 	{
-		for(int j = 0; j < 20; j++)
+		for(int j = -20; j < 20; j++)
 		{	
 			std::cout << i << "," << j << std::endl ;
 			tile * new_tile = new tile(i,j) ;
@@ -104,8 +59,7 @@ start_loop()
 			objects_.push_back( new_tile );
 		}
 	}
-	glViewport(0, 0, APP_WIDTH, APP_HEIGHT);
-	glClearColor(0.0f, 0.0f, 0.2f, 0.0f) ;
+
 
 	unsigned int previous = SDL_GetTicks();
 	double lag = 0.0;
@@ -125,7 +79,7 @@ start_loop()
 			lag -= MS_PER_UPDATE;
 		}
 		
-		renderer_.draw( objects_ ,  camera_->get_view_matrix() , win_ ) ;
+		renderer_.draw( objects_ ,  camera_->get_view_matrix() ) ;
 	}
 
 }

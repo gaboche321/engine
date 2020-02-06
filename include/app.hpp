@@ -26,13 +26,6 @@ private:
 	void render();
 	void event_handler();
 
-	SDL_Window * win_ ;
-	SDL_Renderer * ren_ ; 
-	SDL_GLContext * context_;
-
-	int window_width_;
-	int window_height_;
-
 	camera * camera_ ;
 	std::vector< game_object* > objects_ ;
 

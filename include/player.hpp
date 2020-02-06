@@ -1,31 +1,23 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
-#include <vector>
-#include <iostream>
-#include <GL/gl.h>
-#include <GL/glu.h>
+//#include <vector>
+//#include <iostream>
+//#include <GL/gl.h>
+//#include <GL/glu.h>
+#include <game_object.hpp>
 
-struct position
-{
-	position( float x_ = 0, float y_ = 0)
-	{
-		x = x_;
-		y = y_;
-	}
-	float x, y;
-};
 
-class player
+
+class player : public game_object
 {
 public:
 	player();
 	~player();
 
 	void render();
-	void set_position( float x , float y );
 private:
-	position position_;
+	
 };
 
 #endif
